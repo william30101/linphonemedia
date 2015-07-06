@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{8fa74260-151b-429b-83ef-3cf3eac8cfd9}</ProjectGuid>
+    <RootNamespace>libantlr3c</RootNamespace>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110_wp80</PlatformToolset>
+    <IgnoreImportLibrary>false</IgnoreImportLibrary>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v110_wp80</PlatformToolset>
+    <IgnoreImportLibrary>false</IgnoreImportLibrary>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\$(TargetName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_CONSOLE;_USRDLL;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <AdditionalUsingDirectories>$(WindowsSDK_MetadataPath);$(AdditionalUsingDirectories)</AdditionalUsingDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+      <AdditionalDependencies>Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImportLibrary>$(TargetDir)$(TargetName).lib</ImportLibrary>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='Debug'">
+    <ClCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='Release'">
+    <ClCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Optimization>Full</Optimization>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\include\antlr3.h" />
+    <ClInclude Include="..\..\..\include\antlr3baserecognizer.h" />
+    <ClInclude Include="..\..\..\include\antlr3basetree.h" />
+    <ClInclude Include="..\..\..\include\antlr3basetreeadaptor.h" />
+    <ClInclude Include="..\..\..\include\antlr3bitset.h" />
+    <ClInclude Include="..\..\..\include\antlr3collections.h" />
+    <ClInclude Include="..\..\..\include\antlr3commontoken.h" />
+    <ClInclude Include="..\..\..\include\antlr3commontree.h" />
+    <ClInclude Include="..\..\..\include\antlr3commontreeadaptor.h" />
+    <ClInclude Include="..\..\..\include\antlr3commontreenodestream.h" />
+    <ClInclude Include="..\..\..\include\antlr3convertutf.h" />
+    <ClInclude Include="..\..\..\include\antlr3cyclicdfa.h" />
+    <ClInclude Include="..\..\..\include\antlr3debugeventlistener.h" />
+    <ClInclude Include="..\..\..\include\antlr3defs.h" />
+    <ClInclude Include="..\..\..\include\antlr3encodings.h" />
+    <ClInclude Include="..\..\..\include\antlr3errors.h" />
+    <ClInclude Include="..\..\..\include\antlr3exception.h" />
+    <ClInclude Include="..\..\..\include\antlr3filestream.h" />
+    <ClInclude Include="..\..\..\include\antlr3input.h" />
+    <ClInclude Include="..\..\..\include\antlr3interfaces.h" />
+    <ClInclude Include="..\..\..\include\antlr3intstream.h" />
+    <ClInclude Include="..\..\..\include\antlr3lexer.h" />
+    <ClInclude Include="..\..\..\include\antlr3memory.h" />
+    <ClInclude Include="..\..\..\include\antlr3parser.h" />
+    <ClInclude Include="..\..\..\include\antlr3parsetree.h" />
+    <ClInclude Include="..\..\..\include\antlr3recognizersharedstate.h" />
+    <ClInclude Include="..\..\..\include\antlr3rewritestreams.h" />
+    <ClInclude Include="..\..\..\include\antlr3string.h" />
+    <ClInclude Include="..\..\..\include\antlr3tokenstream.h" />
+    <ClInclude Include="..\..\..\include\antlr3treeparser.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\src\antlr3baserecognizer.c" />
+    <ClCompile Include="..\..\..\src\antlr3basetree.c" />
+    <ClCompile Include="..\..\..\src\antlr3basetreeadaptor.c" />
+    <ClCompile Include="..\..\..\src\antlr3bitset.c" />
+    <ClCompile Include="..\..\..\src\antlr3collections.c" />
+    <ClCompile Include="..\..\..\src\antlr3commontoken.c" />
+    <ClCompile Include="..\..\..\src\antlr3commontree.c" />
+    <ClCompile Include="..\..\..\src\antlr3commontreeadaptor.c" />
+    <ClCompile Include="..\..\..\src\antlr3commontreenodestream.c" />
+    <ClCompile Include="..\..\..\src\antlr3convertutf.c" />
+    <ClCompile Include="..\..\..\src\antlr3cyclicdfa.c" />
+    <ClCompile Include="..\..\..\src\antlr3debughandlers.c" />
+    <ClCompile Include="..\..\..\src\antlr3encodings.c" />
+    <ClCompile Include="..\..\..\src\antlr3exception.c" />
+    <ClCompile Include="..\..\..\src\antlr3filestream.c" />
+    <ClCompile Include="..\..\..\src\antlr3inputstream.c" />
+    <ClCompile Include="..\..\..\src\antlr3intstream.c" />
+    <ClCompile Include="..\..\..\src\antlr3lexer.c" />
+    <ClCompile Include="..\..\..\src\antlr3parser.c" />
+    <ClCompile Include="..\..\..\src\antlr3rewritestreams.c" />
+    <ClCompile Include="..\..\..\src\antlr3string.c" />
+    <ClCompile Include="..\..\..\src\antlr3tokenstream.c" />
+    <ClCompile Include="..\..\..\src\antlr3treeparser.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Windows">
+      <IsWinMDFile>true</IsWinMDFile>
+    </Reference>
+    <Reference Include="platform.winmd">
+      <IsWinMDFile>true</IsWinMDFile>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsPhone\v$(TargetPlatformVersion)\Microsoft.Cpp.WindowsPhone.$(TargetPlatformVersion).targets" />
+</Project>

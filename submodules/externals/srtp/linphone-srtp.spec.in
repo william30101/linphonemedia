@@ -1,0 +1,58 @@
+# -*- rpm-spec -*-
+
+## rpmbuild options
+
+Name:           linphone-srtp
+Version:        1.4.4
+Release:        1%{?dist}
+Summary:        Secure Real-time Transport Protocol (SRTP)
+
+Group:          Applications/Communications
+License:        GPL
+URL:            http://www.linphone.org
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+Source0: 	%{name}-%{version}.tgz
+%description
+SRTP is a security profile for RTP that adds confidentiality, message 
+authentication, and replay protection to that protocol. It is specified 
+in RFC 3711.
+
+Provides: libsrtp
+
+%package devel
+Summary:       Development libraries for srtp
+Group:         Development/Libraries
+Requires:      %{name} = %{version}-%{release}
+
+%description    devel
+Libraries and headers required to develop software with srtp
+
+%prep
+%setup -qn srtp
+
+%build
+%configure 
+%__make %{?_smp_mflags}
+
+%install
+rm -rf %{buildroot}
+make install DESTDIR=$RPM_BUILD_ROOT
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%files
+%defattr(-,root,root)
+%doc CHANGES README
+%{_libdir}/*.so*
+
+%files devel
+%defattr(-,root,root)
+%{_includedir}/srtp
+%{_libdir}/libsrtp.a
+%{_libdir}/libsrtp.so
+
+%changelog
+* Mon Jan 12 2014 Margaux Clerc <margaux.clerc@belledonne-communications.com> 
+- Creation of rpm for linphone
+

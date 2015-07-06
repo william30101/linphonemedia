@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Windows Phone
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libilbc-rfc3951", "libilbc-rfc3951.vcxproj", "{8E216BF3-2DD8-4794-8E97-B1AED301ED4D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Debug|Win32 = Debug|Win32
+		Release|ARM = Release|ARM
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8E216BF3-2DD8-4794-8E97-B1AED301ED4D}.Debug|ARM.ActiveCfg = Debug|ARM
+		{8E216BF3-2DD8-4794-8E97-B1AED301ED4D}.Debug|ARM.Build.0 = Debug|ARM
+		{8E216BF3-2DD8-4794-8E97-B1AED301ED4D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8E216BF3-2DD8-4794-8E97-B1AED301ED4D}.Debug|Win32.Build.0 = Debug|Win32
+		{8E216BF3-2DD8-4794-8E97-B1AED301ED4D}.Release|ARM.ActiveCfg = Release|ARM
+		{8E216BF3-2DD8-4794-8E97-B1AED301ED4D}.Release|ARM.Build.0 = Release|ARM
+		{8E216BF3-2DD8-4794-8E97-B1AED301ED4D}.Release|Win32.ActiveCfg = Release|Win32
+		{8E216BF3-2DD8-4794-8E97-B1AED301ED4D}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

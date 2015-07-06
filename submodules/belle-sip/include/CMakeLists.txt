@@ -1,0 +1,5 @@
+file(GLOB HEADER_FILES "belle-sip/*.h")
+
+install(FILES ${HEADER_FILES}
+        DESTINATION include/belle-sip
+        PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ)

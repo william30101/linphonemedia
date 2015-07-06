@@ -1,0 +1,7 @@
+LOCAL_PATH:= $(call my-dir)
+include $(CLEAR_VARS)
+
+LOCAL_MODULE := libx264
+LOCAL_SRC_FILES := $(TARGET_ARCH)/libx264.a
+
+include $(PREBUILT_STATIC_LIBRARY)

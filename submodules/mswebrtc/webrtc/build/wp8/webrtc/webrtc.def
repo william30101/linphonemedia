@@ -1,0 +1,25 @@
+LIBRARY webrtc
+EXPORTS
+
+WebRtcAecm_BufferFarend
+WebRtcAecm_Create
+WebRtcAecm_Free
+WebRtcAecm_get_error_code
+WebRtcAecm_Init
+WebRtcAecm_Process
+WebRtcAecm_set_config
+WebRtcIsacfix_Assign
+WebRtcIsacfix_AssignSize
+WebRtcIsacfix_GetErrorCode
+WebRtcIsacfix_Control
+WebRtcIsacfix_Decode
+WebRtcIsacfix_DecodePlc
+WebRtcIsacfix_DecoderInit
+WebRtcIsacfix_Encode
+WebRtcIsacfix_EncoderInit
+WebRtcIsacfix_GetNewFrameLen
+WebRtcIsacfix_GetUplinkBw
+WebRtcIsacfix_SetMaxRate
+WebRtcIsacfix_ReadFrameLen
+WebRtcIsacfix_version
+WebRtcSpl_Init

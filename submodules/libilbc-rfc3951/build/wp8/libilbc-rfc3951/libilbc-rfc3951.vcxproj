@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{8e216bf3-2dd8-4794-8e97-b1aed301ed4d}</ProjectGuid>
+    <RootNamespace>libilbc_rfc3951</RootNamespace>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110_wp80</PlatformToolset>
+    <IgnoreImportLibrary>false</IgnoreImportLibrary>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v110_wp80</PlatformToolset>
+    <IgnoreImportLibrary>false</IgnoreImportLibrary>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\$(TargetName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <AdditionalUsingDirectories>$(WindowsSDK_MetadataPath);$(AdditionalUsingDirectories)</AdditionalUsingDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+      <ImportLibrary>$(TargetDir)$(TargetName).lib</ImportLibrary>
+      <ModuleDefinitionFile>$(ProjectDir)libilbc-rfc3951.def</ModuleDefinitionFile>
+    </Link>
+    <PreBuildEvent>
+      <Command>download.bat</Command>
+    </PreBuildEvent>
+    <PreBuildEvent>
+      <Message>Batch script to get the sources</Message>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>Xcopy /I /Y $(ProjectDir)..\..\..\src\*.h $(SolutionDir)$(Platform)\$(Configuration)\include\ilbc\</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='Debug'">
+    <ClCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='Release'">
+    <ClCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Optimization>MaxSpeed</Optimization>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Reference Include="Windows">
+      <IsWinMDFile>true</IsWinMDFile>
+    </Reference>
+    <Reference Include="platform.winmd">
+      <IsWinMDFile>true</IsWinMDFile>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\src\anaFilter.c" />
+    <ClCompile Include="..\..\..\src\constants.c" />
+    <ClCompile Include="..\..\..\src\createCB.c" />
+    <ClCompile Include="..\..\..\src\doCPLC.c" />
+    <ClCompile Include="..\..\..\src\enhancer.c" />
+    <ClCompile Include="..\..\..\src\filter.c" />
+    <ClCompile Include="..\..\..\src\FrameClassify.c" />
+    <ClCompile Include="..\..\..\src\gainquant.c" />
+    <ClCompile Include="..\..\..\src\getCBvec.c" />
+    <ClCompile Include="..\..\..\src\helpfun.c" />
+    <ClCompile Include="..\..\..\src\hpInput.c" />
+    <ClCompile Include="..\..\..\src\hpOutput.c" />
+    <ClCompile Include="..\..\..\src\iCBConstruct.c" />
+    <ClCompile Include="..\..\..\src\iCBSearch.c" />
+    <ClCompile Include="..\..\..\src\iLBC_decode.c" />
+    <ClCompile Include="..\..\..\src\iLBC_encode.c" />
+    <ClCompile Include="..\..\..\src\iLBC_test.c" />
+    <ClCompile Include="..\..\..\src\LPCdecode.c" />
+    <ClCompile Include="..\..\..\src\LPCencode.c" />
+    <ClCompile Include="..\..\..\src\lsf.c" />
+    <ClCompile Include="..\..\..\src\packing.c" />
+    <ClCompile Include="..\..\..\src\StateConstructW.c" />
+    <ClCompile Include="..\..\..\src\StateSearchW.c" />
+    <ClCompile Include="..\..\..\src\syntFilter.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\anaFilter.h" />
+    <ClInclude Include="..\..\..\src\constants.h" />
+    <ClInclude Include="..\..\..\src\createCB.h" />
+    <ClInclude Include="..\..\..\src\doCPLC.h" />
+    <ClInclude Include="..\..\..\src\enhancer.h" />
+    <ClInclude Include="..\..\..\src\filter.h" />
+    <ClInclude Include="..\..\..\src\FrameClassify.h" />
+    <ClInclude Include="..\..\..\src\gainquant.h" />
+    <ClInclude Include="..\..\..\src\getCBvec.h" />
+    <ClInclude Include="..\..\..\src\helpfun.h" />
+    <ClInclude Include="..\..\..\src\hpInput.h" />
+    <ClInclude Include="..\..\..\src\hpOutput.h" />
+    <ClInclude Include="..\..\..\src\iCBConstruct.h" />
+    <ClInclude Include="..\..\..\src\iCBSearch.h" />
+    <ClInclude Include="..\..\..\src\iLBC_decode.h" />
+    <ClInclude Include="..\..\..\src\iLBC_define.h" />
+    <ClInclude Include="..\..\..\src\iLBC_encode.h" />
+    <ClInclude Include="..\..\..\src\LPCdecode.h" />
+    <ClInclude Include="..\..\..\src\LPCencode.h" />
+    <ClInclude Include="..\..\..\src\lsf.h" />
+    <ClInclude Include="..\..\..\src\packing.h" />
+    <ClInclude Include="..\..\..\src\StateConstructW.h" />
+    <ClInclude Include="..\..\..\src\StateSearchW.h" />
+    <ClInclude Include="..\..\..\src\syntFilter.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsPhone\v$(TargetPlatformVersion)\Microsoft.Cpp.WindowsPhone.$(TargetPlatformVersion).targets" />
+</Project>
