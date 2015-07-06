@@ -2,6 +2,7 @@
 <resources>
     <!-- Tutorial settings -->
     <bool name="show_tutorials_instead_of_app">false</bool> <!-- Be careful ! Setting this to true prevent the app from working ! It will only display tutorial activities -->
+	<bool name="show_login_openfire_layout">true</bool>
 
 	<!-- Push notification settings -->
 	<bool name="enable_push_id">true</bool>

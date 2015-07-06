@@ -243,6 +243,14 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
+        
+		<!-- Add my customized activity -->
+		<activity android:name="org.linphone.openfire.openfireMain"
+		    android:theme="@style/NoTitle">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
 	
 	</application>
 
